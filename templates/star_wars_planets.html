@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" defer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"defer ></script>
+    
+    
+    <script src="{{url_for('static', filename='eventHandler.js')}}" defer></script>
+    <script src="{{url_for('static', filename='dataHandler.js')}}" defer></script>
+    <script src="{{url_for('static', filename='dom.js')}}" defer></script>
+    <script src="{{url_for('static', filename='registration.js')}}" defer></script>
+    <script src="{{url_for('static', filename='planets.js')}}" defer></script>
+    
+    
+    
+    
+    
+    <title>Star wars Universe Planets</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('star_wars_planets') }}">Planet List<span class="sr-only">(current)</span></a></li>
+        <li><a href="{{ url_for('registration') }}">Registration</a></li>
+        <li><a data-toggle="modal" data-target="#log_in" style="cursor: pointer">Log In</a></li>
+        <li><a id="submit-log_out" style="cursor: pointer">Log Out</a></li>
+        </ul>
+        
+        <p id="sing-in" class="navbar-text navbar-right" style="margin-right: 20px" hidden>Signed in as <a href="#" class="navbar-link"></a></p>
+    </nav>
+
+    <h1>Star Wars Universe Planets <small>Planet List</small></h1>
+    <button type="button" class="btn btn-primary" disabled="disabled" id="previous">Previous</button>
+    <button type="button" class="btn btn-primary" disabled="disabled" id="next">Next</button><p>
+    <table class="table table-bordered" id="planets-table">
+        <tr>
+            <th>Name</th>
+            <th>Diameter</th>
+            <th>Climate</th>
+            <th>Terrain</th>
+            <th>Surface Water Percentage</th>
+            <th>Population</th>
+            <th>Residents</th>
+        </tr>
+        <tbody class="table table-bordered" id="planets-details">
+        </tbody>
+    </table>
+    <div class="modal fade" id="residents-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">RESIDENT OF PLANETS</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered" id="planets-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Height</th>
+                            <th>Mass</th>
+                            <th>Hair color</th>
+                            <th>Skin color</th>
+                            <th>Eye color</th>
+                            <th>Birth year</th>
+                            <th>Gender</th>
+                        </tr>
+                        <tbody class="table table-bordered" id="residents-details">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="log_out" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h4 id="modal-text"><center>You have successfully logged out!</center></h4>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="log_in" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Log In</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form">
+                        <form  class="form-horizontal" >
+                            <div  id="validation" class="form-group">
+                              <label id="invalid-username" class="control-label" for="inputError2"></label>
+                              <label  for="username" class="col-sm-2 control-label">Username</label>
+                              <div class="col-sm-4">
+                                <input name="username" type="text" class="form-control" id="username" placeholder="Username" minlength="3" maxlength="15" data-toggle="tooltip" data-placement="right" title="Minimum 3 and maximum 15 characther">
+                              </div>
+                            </div>
+                            <div id="validation-password" class="form-group">
+                              <label id="invalid-password" class="control-label" for="inputError2"></label>
+                              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                              <div class="col-sm-4">
+                                <input name="password" type="password" class="form-control" id="password" placeholder="Password" minlength="8" data-toggle="tooltip" data-placement="right" title="Minimum 8 characther">
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success"  id="submit-log_in">Log In</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="{{ url_for('registration') }}">Don't have an account? Register Now!</a>
+                            </div>
+                        </form>
+                    </div>    
+                </div>
+            </div>  
+    </div>
+    <div id="log_out" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                ...
+            </div>
+        </div>
+    </div>
+   
+</body>
+
+</html>

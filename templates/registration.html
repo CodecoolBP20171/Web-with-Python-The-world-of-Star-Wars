@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" defer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"defer ></script>
+
+    <script src="{{url_for('static', filename='registration.js')}}" defer></script>
+    
+    
+    
+    <title>Star wars Universe Planets</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('star_wars_planets') }}">Planet List<span class="sr-only">(current)</span></a></li>
+        <li><a href="{{ url_for('registration') }}">Registration</a></li>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#">Log Out</a></li>
+        </ul>
+        <p id="sign-in" class="navbar-text navbar-right" hidden>Signed in as <a href="#" class="navbar-link"></a></p>
+    </nav>
+    <h1>Star Wars Universe Planets <small>Registration</small></h1>
+    <form action="{{ url_for('star_wars_planets') }}" hidden><button id="success" class="btn btn-success btn-lg" role="button"  >Success Registration!</button></form>
+    <div class="form">
+        <form  class="form-horizontal" >
+            <div  id="validation" class="form-group">
+              <label id="invalid-username" class="control-label" for="inputError2"></label>
+              <label  for="username" class="col-sm-2 control-label">Username</label>
+              <div class="col-sm-4">
+                <input name="username" type="text" class="form-control" id="username" placeholder="Username" minlength="3" maxlength="15" data-toggle="tooltip" data-placement="right" title="Minimum 3 and maximum 15 characther">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-4">
+                <input name="password" type="password" class="form-control" id="password" placeholder="Password" minlength="8" data-toggle="tooltip" data-placement="right" title="Minimum 8 characther">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" id="registration" class="btn btn-default">Registration</button>
+              </div>
+            </div>
+        </form>
+    </div>
+</body>
