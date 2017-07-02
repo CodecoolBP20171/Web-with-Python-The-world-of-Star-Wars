@@ -28,7 +28,7 @@
         <li class="active"><a href="{{ url_for('star_wars_planets') }}">Planet List<span class="sr-only">(current)</span></a></li>
         <li><a href="{{ url_for('registration') }}">Registration</a></li>
         <li><a data-toggle="modal" data-target="#log_in" style="cursor: pointer">Log In</a></li>
-        <li><a id="submit-log_out" style="cursor: pointer">Log Out</a></li>
+        <li><a id="submit-log_out" style="cursor: pointer" href="{{ url_for('logout') }}">Log Out</a></li>
         </ul>
         
         <p id="sing-in" class="navbar-text navbar-right" style="margin-right: 20px" hidden>Signed in as <a href="#" class="navbar-link"></a></p>
@@ -79,15 +79,6 @@
             </div>
         </div>
     </div>
-    <div id="log_out" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <h4 id="modal-text"><center>You have successfully logged out!</center></h4>
-            </div>
-        </div>
-    </div>
-
-
 
     <div class="modal fade" id="log_in" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog" role="document">
@@ -122,13 +113,6 @@
                     </div>    
                 </div>
             </div>  
-    </div>
-    <div id="log_out" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                ...
-            </div>
-        </div>
     </div>
    
 </body>

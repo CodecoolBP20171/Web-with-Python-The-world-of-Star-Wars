@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template,jsonify
+from flask import Flask, request, render_template, jsonify, session, redirect, url_for, escape, request
 import requests
 import input_handler
 
@@ -11,13 +11,11 @@ def star_wars_planets():
     return render_template("star_wars_planets.html")
 
 
-@app.route("/user", methods=["GET"])
-def star_wars_planets_with_user():
-    user_id = request.args.get["data-user_id"]
-    user_data = request.args.get["username"]
-    print(user_id)
-    print(user_data)
-    return ("OK")
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    session.pop('user_id', None)
+    return redirect(url_for('star_wars_planets'))
 
 
 @app.route("/registration", methods=['GET'])
@@ -45,6 +43,8 @@ def new_registration():
 @app.errorhandler(404)
 def not_found(e):
     return render_template("404.html")
+
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 if __name__ == '__main__':
     app.run(debug=True)

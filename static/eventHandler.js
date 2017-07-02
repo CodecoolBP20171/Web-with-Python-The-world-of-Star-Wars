@@ -35,8 +35,7 @@ app.events = {
             $('#submit-log_out').click(function() {
                 $('#sing-in').attr("hidden");
                 sessionStorage.clear();
-                $("#modal-text").text("You have successfully logged out!")
-                $('#log_out').modal('show');
+                
             });
         });
         $(function() {
