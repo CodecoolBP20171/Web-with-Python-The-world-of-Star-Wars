@@ -25,14 +25,14 @@ app.dom = {
         var htmlElements = '';
         for (i =0; i < data.length; i++) {
             htmlElements += ('<tr><td>' + data[i].name + '</td ><td>'
-                                         + data[i].diameter + '</td ><td>' 
+                                         + data[i].diameter+ ' km</td ><td>' 
                                          + data[i].climate + '</td><td>'
                                          + data[i].terrain + '</td><td>'
                                          + data[i].surface_water + '% </td>');
             if (data[i].population==='unknown') {
                 htmlElements += ('<td>' + data[i].population +'</td>');
             } else {
-                htmlElements += ('<td>'+ parseInt(data[i].population) + ' people</td>');
+                htmlElements += ('<td>'+ parseInt(data[i].population).toLocaleString() + ' people</td>');
             };                        
             if (data[i].residents.length ===0){
                 htmlElements += ('<td>'+ 'No known residents' + '</td></tr>');
