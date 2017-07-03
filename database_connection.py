@@ -2,7 +2,7 @@ import psycopg2
 
 """
 def db_request(query):
-    """Establish connection for database request"""
+    
     try:
         connect_str = "dbname=potyi user=potyi host='localhost' password=joinme9"
         conn = psycopg2.connect(connect_str)
@@ -17,7 +17,7 @@ def db_request(query):
 
 
 def db_update(query):
-    """Establish connection for database update"""
+    
     try:
         connect_str = "dbname=potyi user=potyi host='localhost' password=joinme9"
         conn = psycopg2.connect(connect_str)
