@@ -6,7 +6,7 @@ app.dataHandler = {
     
     getPlanetsData: function(pageCount) {
         var planetsRequests= new XMLHttpRequest();
-        planetsRequests.open('GET','http://swapi.co/api/planets/?page='+ pageCount+'');
+        planetsRequests.open('GET','https://swapi.co/api/planets/?page='+ pageCount+'');
         planetsRequests.onload = function() {
             if (planetsRequests.status >= 200 && planetsRequests.status < 400) {
                 var planetsData= JSON.parse(planetsRequests.responseText);
